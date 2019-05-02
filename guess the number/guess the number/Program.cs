@@ -21,7 +21,6 @@ namespace guess_the_number
             Console.WriteLine("Hey lets play a little guessing game.");
             Console.WriteLine("Guess the number between 0 and 25");
             while (count < 7) {
-                count = count + 1;
                 startinput = Console.ReadLine();
                 input = int.Parse(startinput);
                 guesses[count] = input;
@@ -51,14 +50,16 @@ namespace guess_the_number
                     guessesleft = guessesleft - 1;
                     Console.WriteLine("you have " + guessesleft + " left!");
                 }
-                
+                count = count + 1;
             }
-            if (count == 8)
+            if (count == 7)
             {
                 Console.WriteLine("the number was "+random+" you fool.");
-                Console.WriteLine(guesses);
-                Console.Write(guesses[1] + ", " + guesses[2] + ", " + guesses[3] + ", " + guesses[4] + ", " + guesses[5] + ", " + guesses[6] + ", " + guesses[7] + ", ");
-
+                Console.WriteLine("log of guesses");
+                foreach (int item in guesses)
+                {
+                    Console.Write(item.ToString() + ", ");
+                }
             }
             Console.ReadKey();
         }
